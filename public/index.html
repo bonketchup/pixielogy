@@ -247,6 +247,20 @@ details.item summary .t small mark.hl{font-weight:700}
   .stk:not(.main):nth-of-type(3n){animation-duration:3.7s;animation-delay:-2.3s}
   @keyframes stkbob{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -5px;rotate:1.5deg}}
 }
+#guideTabs{flex-wrap:wrap}
+.gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.gcard{border:1.5px solid var(--ink);background:var(--card);padding:14px 16px;position:relative;overflow:hidden}
+.gcard .band{height:10px;margin:-14px -16px 12px;background:var(--hl);border-bottom:1.5px solid var(--ink)}
+.gcard .gtop{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.gcard .gbig{font-size:1.9rem;line-height:1;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;flex:none}
+.gcard .gname{font-family:var(--mono);font-weight:700;text-transform:uppercase;font-size:.95rem;line-height:1.1}
+.gcard .gname small{display:block;font-weight:400;text-transform:none;color:var(--muted);font-size:.76rem;margin-top:3px}
+.gmeta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.gmeta span{font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;border:1px solid var(--ink);padding:1px 7px}
+.grow{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;padding:14px 0;border-top:1.5px solid var(--ink)}
+.grow:first-child{border-top:0}
+.grow .gbig{font-size:1.4rem;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center}
+.grow .gbig.txt{font-family:var(--mono);font-weight:700;font-size:.8rem}
 footer{text-align:center;margin-top:34px}
 .panel{display:none}.panel.on{display:block}
 @media (prefers-reduced-motion:no-preference){
@@ -269,6 +283,7 @@ footer{text-align:center;margin-top:34px}
       <button class="tab" role="tab" aria-selected="true" data-tab="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg>My chart</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>Match</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4" stroke-linecap="round"/></svg>Mochi</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5C4.7 20 4 19.3 4 18.5z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/></svg>Guide</button>
     </div>
     <button class="textbtn" id="themeBtn">Dark mode</button>
   </nav>
@@ -362,6 +377,31 @@ footer{text-align:center;margin-top:34px}
       </div>
     </div>
     <p class="note" style="text-align:center">Mochi is powered by Google Gemini. Astrology is for reflection, not fate.</p>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="panel" id="panel-guide">
+    <header class="who" style="padding-top:26px">
+      <img class="stk" data-img="headphones" style="width:min(100px,22vw);right:6px;top:6px;transform:rotate(6deg)" alt="">
+      <p class="hand" style="transform:rotate(-3deg);display:inline-block">( astrology 101 )</p>
+      <h1 class="mono-xl" style="max-width:74%">The cheat sheet</h1>
+      <p class="ransom" style="font-size:clamp(1.05rem,2.4vw,1.4rem);margin-top:14px" data-ransom="for friends who just want to know what the squiggles mean"></p>
+    </header>
+    <div class="block">
+      <h2>How to read a chart</h2><p class="sub">the four ingredients, in one sentence each</p>
+      <div class="gcards" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">
+        <div class="gcard"><p class="col-h" style="margin-top:0">✦ Planets = what</p><p class="small" style="margin:0">Each planet is a part of you: your feelings, your love style, your drive.</p></div>
+        <div class="gcard"><p class="col-h" style="margin-top:0">✦ Signs = how</p><p class="small" style="margin:0">The sign shows the flavour that planet has. Venus in Leo loves loudly, Venus in Virgo loves through helping.</p></div>
+        <div class="gcard"><p class="col-h" style="margin-top:0">✦ Houses = where</p><p class="small" style="margin:0">The house shows which area of life that energy plays out in, like career, home or friends.</p></div>
+        <div class="gcard"><p class="col-h" style="margin-top:0">✦ Aspects = conversations</p><p class="small" style="margin:0">Angles between planets. They show which parts of you work together and which ones argue.</p></div>
+      </div>
+      <p class="small" style="margin:18px 0 0"><strong>Put it together:</strong> "Moon in Cancer in the 4th house" means your feelings (Moon) are caring and protective (Cancer), and they show up most at home and with family (4th house).</p>
+    </div>
+    <div class="block">
+      <img class="stk hide-sm" data-img="bunny" style="width:76px;right:-14px;top:-50px;transform:rotate(8deg)" alt="">
+      <div class="seg mtabs" role="tablist" id="guideTabs"><button data-g="signs" class="on">Signs</button><button data-g="planets">Planets</button><button data-g="houses">Houses</button><button data-g="aspects">Aspects</button><button data-g="symbols">Chart symbols</button></div>
+      <div id="guideBody"></div>
+    </div>
   </section>
 
   <footer class="note">Tropical zodiac, Placidus houses, Swiss Ephemeris data for extra points (1900 to 2050)</footer>
@@ -1173,6 +1213,61 @@ function showTab(name) {
   window.scrollTo({ top: 0 });
 }
 document.querySelectorAll('.tabs .tab').forEach(b => b.onclick = () => showTab(b.dataset.tab));
+// ================= Guide =================
+const SIGN_DATES = ['Mar 21 to Apr 19','Apr 20 to May 20','May 21 to Jun 20','Jun 21 to Jul 22','Jul 23 to Aug 22','Aug 23 to Sep 22','Sep 23 to Oct 22','Oct 23 to Nov 21','Nov 22 to Dec 21','Dec 22 to Jan 19','Jan 20 to Feb 18','Feb 19 to Mar 20'];
+const GUIDE_PLANETS = [
+  ['Sun','Your core self and identity. The sign everyone knows as "your sign".'],
+  ['Moon','Your feelings, moods and what makes you feel safe.'],
+  ['Rising','Your first impression and outer vibe. Needs an exact birth time.','AC'],
+  ['Mercury','How you think, talk, text and learn.'],
+  ['Venus','How you love, what you find beautiful, and your style.'],
+  ['Mars','Your drive, ambition, anger and how you go after things.'],
+  ['Jupiter','Where you get lucky and grow. Stays in a sign about a year.'],
+  ['Saturn','Your life lessons and where you earn mastery through effort.'],
+  ['Uranus','Change, rebellion and doing things differently. Shared by your generation.'],
+  ['Neptune','Dreams, intuition and ideals. Shared by your generation.'],
+  ['Pluto','Deep transformation and personal power. Very generational.'],
+  ['Chiron','Your tender wound, and the healing gift it becomes.','',1],
+  ['NorthNode','Your life direction: the qualities you are here to grow into.','',1],
+  ['SouthNode','Your comfort zone: natural skills you can lean on too much.','',1],
+  ['Lilith','Your wild, untamed side, and what you were told to hide.','',1],
+  ['Ceres','How you nurture others and need to be cared for.','',1],
+  ['Pallas','Your strategic mind and problem-solving style.','',1],
+  ['Juno','What you need in a committed partner.','',1],
+  ['Vesta','What you devote yourself to and treat as sacred.','',1],
+  ['Fortune','Where joy and luck flow most easily.','',1]
+];
+const GUIDE_ASPECTS = [
+  ['☌','Conjunct','0°','Two planets sit together and blend their energy. Powerful, can go either way.'],
+  ['⚹','Sextile','60°','Friendly and helpful. An easy opportunity if you use it.'],
+  ['□','Square','90°','Tension and friction. Uncomfortable, but it pushes you to grow.'],
+  ['△','Trine','120°','Natural harmony. Things flow without effort.'],
+  ['☍','Opposite','180°','A tug of war between two sides. The goal is balance.']
+];
+function guideHTML(tab) {
+  if (tab === 'signs') return `<h2>The 12 signs</h2><p class="sub">the flavour each planet takes on</p><div class="gcards">${SIGNS.map((s, i) => `<div class="gcard" style="--hl:${SIGN_PASTEL[i]}"><div class="band"></div><div class="gtop"><span class="gbig g">${G(s.g)}</span><span class="gname">${hlSign(s)}<small>${SIGN_DATES[i]}</small></span></div><div class="gmeta"><span>${s.el}</span><span>${s.mod}</span><span>Ruler: ${s.ruler}</span></div><p class="small" style="margin:0">${cap(s.kw)}.</p></div>`).join('')}</div>
+    <p class="note" style="margin-top:16px">Elements: fire is energetic, earth is grounded, air is social and mental, water is emotional. Modes: cardinal starts things, fixed sustains, mutable adapts. Sun sign dates can shift by a day depending on the year.</p>`;
+  if (tab === 'planets') {
+    const row = ([k, t, txt, extra]) => `<div class="grow"><span class="gbig ${txt ? 'txt' : 'g'}">${txt ? txt : G(POINTS[k].g)}</span><div><p class="col-h" style="margin:0 0 2px">${k === 'Rising' ? 'Rising (Ascendant)' : POINTS[k].label}${extra ? ' <span class="nat" style="background:var(--card);color:var(--ink)">extra point</span>' : ''}</p><p class="small" style="margin:0">${t}</p></div></div>`;
+    return `<h2>Planets and points</h2><p class="sub">the different parts of you</p>${GUIDE_PLANETS.filter(x => !x[3]).map(row).join('')}<p class="col-h" style="margin:24px 0 4px">✧ Extra points</p><p class="note" style="margin:0 0 6px">Shown when you tap "+ Extra points" on your chart.</p>${GUIDE_PLANETS.filter(x => x[3]).map(row).join('')}`;
+  }
+  if (tab === 'houses') return `<h2>The 12 houses</h2><p class="sub">the areas of life where things play out</p>${HOUSES.map((h, i) => `<div class="grow"><span class="gbig txt">${i + 1}</span><div><p class="col-h" style="margin:0 0 2px">${hlHouse(i, h.t)}</p><p class="small" style="margin:0">${cap(h.d)}.</p></div></div>`).join('')}<p class="note" style="margin-top:14px">Houses need an exact birth time. Without it, the app shows signs only.</p>`;
+  if (tab === 'aspects') return `<h2>Aspects</h2><p class="sub">angles between planets, in your chart and between two charts</p>${GUIDE_ASPECTS.map(a => `<div class="grow"><span class="gbig g">${G(a[0])}</span><div><p class="col-h" style="margin:0 0 2px">${a[1]} <span class="muted" style="font-weight:400">${a[2]}</span></p><p class="small" style="margin:0">${a[3]}</p></div></div>`).join('')}<p class="note" style="margin-top:14px">Orb = how close an aspect is to exact. Smaller orb, stronger feeling. On the wheel, solid lines are easy aspects and dashed lines are tense ones.</p>`;
+  return `<h2>Chart symbols</h2><p class="sub">the little codes you'll see around the app</p>${[
+    ['AC', 'Ascendant, or rising sign. The left edge of the wheel.'],
+    ['MC', 'Midheaven. The top of the chart, linked to career and public image.'],
+    ['R', 'Retrograde. The planet looked like it was moving backwards from Earth when you were born. Its energy turns more inward.'],
+    ['H9', 'House number. "H9" means it sits in your 9th house.'],
+    ["29°12'", 'Exact position: 29 degrees, 12 minutes into the sign. Each sign has 30 degrees.'],
+    ['1 to 12', 'The small numbers inside the wheel are the houses, counted from the AC going downwards.']
+  ].map(([c, t]) => `<div class="grow"><span class="gbig txt" style="font-size:${c.length > 3 ? '.62rem' : '.8rem'}">${c}</span><div><p class="small" style="margin:0">${t}</p></div></div>`).join('')}`;
+}
+function renderGuide(tab = 'signs') {
+  document.querySelectorAll('#guideTabs button').forEach(b => b.classList.toggle('on', b.dataset.g === tab));
+  $('#guideBody').innerHTML = guideHTML(tab);
+}
+document.querySelectorAll('#guideTabs button').forEach(b => b.onclick = () => renderGuide(b.dataset.g));
+setTimeout(() => renderGuide(), 0);
 
 // ================= Storage (local + cloud) =================
 const LS = {
