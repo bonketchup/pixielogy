@@ -239,6 +239,14 @@ details.item summary .t small mark.hl{font-weight:700}
 .filters button{font-family:var(--mono);font-weight:700;font-size:.72rem;text-transform:uppercase;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);padding:5px 10px;cursor:pointer}
 .filters button.on{background:var(--ink);color:var(--on-ink)}
 .hotspot{border:1.5px dashed var(--ink);padding:12px 14px;margin:0 0 14px}
+
+/* gentle sticker bobbing */
+@media (prefers-reduced-motion:no-preference){
+  .stk:not(.main){animation:stkbob 4.2s ease-in-out infinite}
+  .stk:not(.main):nth-of-type(2n){animation-duration:5s;animation-delay:-1.4s}
+  .stk:not(.main):nth-of-type(3n){animation-duration:3.7s;animation-delay:-2.3s}
+  @keyframes stkbob{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -5px;rotate:1.5deg}}
+}
 footer{text-align:center;margin-top:34px}
 .panel{display:none}.panel.on{display:block}
 @media (prefers-reduced-motion:no-preference){
@@ -1279,7 +1287,7 @@ try { ZONES = Intl.supportedValuesOf('timeZone'); } catch (e) { ZONES = [...new 
 function makeForm(host, label, onDone) {
   host.innerHTML = `<form novalidate>
     <div class="form-grid">
-      <label>Name<input name="name" autocomplete="off" placeholder="e.g. Bonnie"></label>
+      <label>Name<input name="name" autocomplete="off" placeholder="Your name"></label>
       <label>Birth date<input type="date" name="date" min="1900-01-01" max="2099-12-31"></label>
       <label>Birth time<input type="time" name="time"></label>
     </div>
