@@ -1,0 +1,17 @@
+{
+  "name": "pixielogy",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  // keeps variables you add in the dashboard (like DAILY_LIMIT) when you redeploy
+  "keep_vars": true
+
+  // OPTIONAL daily limit: create a KV namespace, then add a comma after true above
+  // and uncomment the lines below, pasting your namespace ID.
+  // "kv_namespaces": [
+  //   { "binding": "RATE", "id": "PASTE_YOUR_KV_NAMESPACE_ID_HERE" }
+  // ]
+}
