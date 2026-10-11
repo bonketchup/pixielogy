@@ -1,4 +1,4 @@
-# Pixielogy 🪄
+# Pixielogy 🪄 
 
 Runs as a Cloudflare Worker: the app lives in `public/`, Mochi's AI endpoint in `src/worker.js`.
 
